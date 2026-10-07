@@ -1,0 +1,204 @@
+{
+ "histories": [
+  "requests_ctx_normal_fastapi_11355",
+  "requests_ctx_normal_fastapi_12942",
+  "requests_ctx_normal_fastapi_14361",
+  "requests_ctx_normal_fastapi_14463",
+  "requests_ctx_normal_httpx_3672",
+  "requests_ctx_normal_requests_6644",
+  "requests_ctx_normal_requests_7502",
+  "requests_ctx_normal_rich_2725",
+  "requests_ctx_normal_rich_3777",
+  "requests_ctx_normal_rich_3894"
+ ],
+ "summary": {
+  "orig": {
+   "declared_call": 10
+  },
+  "neutral": {
+   "declared_call": 10
+  }
+ },
+ "samples": [
+  {
+   "history": "requests_ctx_normal_fastapi_11355",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_11355",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_12942",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_12942",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_14361",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_14361",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_14463",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_fastapi_14463",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_httpx_3672",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_httpx_3672",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_requests_6644",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_requests_6644",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_requests_7502",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_requests_7502",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_2725",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_2725",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_3777",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_3777",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_3894",
+   "variant": "orig",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "history": "requests_ctx_normal_rich_3894",
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  }
+ ]
+}

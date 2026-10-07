@@ -1,0 +1,645 @@
+[
+ {
+  "name": "RR0_baseline",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     3
+    ],
+    "stop_reason": "Maximum number of messages 4 reached, current message count: 4",
+    "sources": [
+     "user",
+     "L",
+     "F",
+     "L"
+    ],
+    "next_speaker_index": 1
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-1"
+   },
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user",
+     "assistant",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "F-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-2"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F",
+   "L"
+  ]
+ },
+ {
+  "name": "RR1_resume_after_L",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": "CONT-1 continue",
+    "requests": [
+     1,
+     2
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "user",
+     "F"
+    ],
+    "next_speaker_index": 0
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "CONT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-1"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F"
+  ]
+ },
+ {
+  "name": "RR2_resume_after_F",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     1,
+     2
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "F"
+    ],
+    "next_speaker_index": 0
+   },
+   {
+    "label": "resume",
+    "task": "CONT-1 continue",
+    "requests": [
+     2,
+     3
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-1"
+   },
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user",
+     "assistant",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "F-OUT-1",
+     "CONT-1"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-2"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F",
+   "L"
+  ]
+ },
+ {
+  "name": "RR3_fresh_team",
+  "runs": [
+   {
+    "label": "run",
+    "task": "CONT-1 continue",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "CONT-1"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   }
+  ],
+  "first_request_agents": [
+   "L"
+  ]
+ },
+ {
+  "name": "RR4_repeated",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     1,
+     2
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "F"
+    ],
+    "next_speaker_index": 0
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     2,
+     3
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     3,
+     4
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "F"
+    ],
+    "next_speaker_index": 0
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     4,
+     5
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "L"
+    ],
+    "next_speaker_index": 1
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-1"
+   },
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user",
+     "assistant",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "F-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-2"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user",
+     "assistant",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "L-OUT-2",
+     "F-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-2"
+   },
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user",
+     "assistant",
+     "user",
+     "assistant",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "L-OUT-2",
+     "F-OUT-1",
+     "F-OUT-2"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-3"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F",
+   "L",
+   "F",
+   "L"
+  ]
+ },
+ {
+  "name": "RR5_nudge_after_L",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": "Please continue your work using the available tools, or call finish_fixture when you have completed and verified your changes.",
+    "requests": [
+     1,
+     2
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "user",
+     "F",
+     "F",
+     "F"
+    ],
+    "next_speaker_index": 0
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "Please continue"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "call finish_fixture"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F"
+  ]
+ },
+ {
+  "name": "RR5_nudge_after_F",
+  "runs": [
+   {
+    "label": "run",
+    "task": "TASK-0 fix add_row",
+    "requests": [
+     0,
+     1
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L"
+    ],
+    "next_speaker_index": 1
+   },
+   {
+    "label": "resume",
+    "task": null,
+    "requests": [
+     1,
+     2
+    ],
+    "stop_reason": "'F' answered",
+    "sources": [
+     "F"
+    ],
+    "next_speaker_index": 0
+   },
+   {
+    "label": "resume",
+    "task": "Please continue your work using the available tools, or call finish_fixture when you have completed and verified your changes.",
+    "requests": [
+     2,
+     3
+    ],
+    "stop_reason": "'L' answered",
+    "sources": [
+     "user",
+     "L",
+     "L",
+     "L"
+    ],
+    "next_speaker_index": 1
+   }
+  ],
+  "requests": [
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user"
+    ],
+    "sees": [
+     "TASK-0"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "L-OUT-1"
+   },
+   {
+    "agent": "F",
+    "roles": [
+     "system",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1"
+    ],
+    "tools": [
+     "inspect_fixture",
+     "finish_fixture"
+    ],
+    "reply": "F-OUT-1"
+   },
+   {
+    "agent": "L",
+    "roles": [
+     "system",
+     "user",
+     "assistant",
+     "user",
+     "user"
+    ],
+    "sees": [
+     "TASK-0",
+     "L-OUT-1",
+     "F-OUT-1",
+     "Please continue"
+    ],
+    "tools": [
+     "inspect_fixture"
+    ],
+    "reply": "call inspect_fixture"
+   }
+  ],
+  "first_request_agents": [
+   "L",
+   "F",
+   "L"
+  ]
+ }
+]

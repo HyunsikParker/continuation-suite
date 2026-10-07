@@ -1,0 +1,333 @@
+{
+ "histories": [],
+ "summary": {
+  "harness": {
+   "declared_call": 20
+  },
+  "neutral": {
+   "declared_call": 20
+  }
+ },
+ "samples": [
+  {
+   "variant": "harness",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 0,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 1,
+   "kind": "declared_call",
+   "names": [
+    "load_skill"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 1,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 2,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 2,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 3,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 3,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 4,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 4,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 5,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 5,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 6,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 6,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 7,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 7,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 8,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 8,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 9,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 9,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 10,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 10,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 11,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 11,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 12,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 12,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 13,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 13,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 14,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 14,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 15,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 15,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 16,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 16,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 17,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 17,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 18,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 18,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "harness",
+   "seed": 19,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  },
+  {
+   "variant": "neutral",
+   "seed": 19,
+   "kind": "declared_call",
+   "names": [
+    "run_skill_script"
+   ]
+  }
+ ]
+}

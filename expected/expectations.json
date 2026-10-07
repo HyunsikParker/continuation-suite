@@ -1,0 +1,679 @@
+{
+ "cases": {
+  "base_noop_edit": {
+   "receivers": [
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": false,
+   "patch_sha8": "4cff1e7a",
+   "unmatched_requests": 0
+  },
+  "base_gold_submit": {
+   "receivers": [
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "base_gold_text_end": {
+   "receivers": [
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_seq_fixer_only": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": false,
+   "patch_sha8": "",
+   "unmatched_requests": 0
+  },
+  "route_transfer_fixer_last_fixer_only": {
+   "receivers": [
+    "coordinator",
+    "locator",
+    "fixer",
+    "fixer",
+    "fixer",
+    "fixer"
+   ],
+   "nudges": 1,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_transfer_locator_last_fixer_only": {
+   "receivers": [
+    "coordinator",
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": false,
+   "patch_sha8": "",
+   "unmatched_requests": 0
+  },
+  "route_seq_both": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_transfer_fixer_last_both": {
+   "receivers": [
+    "coordinator",
+    "locator",
+    "fixer",
+    "fixer",
+    "fixer",
+    "fixer"
+   ],
+   "nudges": 1,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_transfer_locator_last_both": {
+   "receivers": [
+    "coordinator",
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "locator",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_seq_text_end": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_loop2_text_end": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "route_seq_cutoff": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": false,
+   "patch_sha8": "",
+   "unmatched_requests": 0
+  },
+  "route_agenttool": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 2,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "state_fixer_none": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "state_fixer_default": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skiptrue_n2": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 2,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skiptrue_n3": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skiptrue_n4": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 4,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skiptrue_n6": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 6,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "render_skiptrue_n3": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skipfalse_n2": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skipfalse_n3": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skipfalse_n4": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "deleg_skipfalse_n6": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "render_skipfalse_n3": {
+   "receivers": [
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "code_analyzer",
+    "swe_fixer",
+    "swe_fixer",
+    "swe_fixer"
+   ],
+   "nudges": 0,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "fix_overlay_off_trap": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": false,
+   "patch_sha8": "",
+   "unmatched_requests": 0
+  },
+  "fix_plugin_trap": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 4,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "fix_salvage_trap": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator"
+   ],
+   "nudges": 1,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  },
+  "fix_official_skill_throw": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer"
+   ],
+   "nudges": 0,
+   "resolved": false,
+   "patch_sha8": "",
+   "unmatched_requests": 0
+  },
+  "fix_plugin_skill_throw": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0
+  }
+ },
+ "history": {
+  "none": [
+   "C"
+  ],
+  "default": [
+   "A",
+   "B",
+   "C",
+   "edit",
+   "nudge"
+  ]
+ },
+ "autogen": {
+  "RR0_baseline": {
+   "order": [
+    "L",
+    "F",
+    "L"
+   ],
+   "next_speaker_index": [
+    1
+   ]
+  },
+  "RR1_resume_after_L": {
+   "order": [
+    "L",
+    "F"
+   ],
+   "next_speaker_index": [
+    1,
+    0
+   ]
+  },
+  "RR2_resume_after_F": {
+   "order": [
+    "L",
+    "F",
+    "L"
+   ],
+   "next_speaker_index": [
+    1,
+    0,
+    1
+   ]
+  },
+  "RR3_fresh_team": {
+   "order": [
+    "L"
+   ],
+   "next_speaker_index": [
+    1
+   ]
+  },
+  "RR4_repeated": {
+   "order": [
+    "L",
+    "F",
+    "L",
+    "F",
+    "L"
+   ],
+   "next_speaker_index": [
+    1,
+    0,
+    1,
+    0,
+    1
+   ]
+  },
+  "RR5_nudge_after_L": {
+   "order": [
+    "L",
+    "F"
+   ],
+   "next_speaker_index": [
+    1,
+    0
+   ]
+  },
+  "RR5_nudge_after_F": {
+   "order": [
+    "L",
+    "F",
+    "L"
+   ],
+   "next_speaker_index": [
+    1,
+    0,
+    1
+   ]
+  }
+ },
+ "render": {
+  "31B/true/pre_edit/default": [],
+  "31B/true/pre_edit/drop_nudges": [
+   "0",
+   "1",
+   "2"
+  ],
+  "31B/true/pre_edit/preserve": [
+   "0",
+   "1",
+   "2"
+  ],
+  "31B/true/final/default": [
+   "8",
+   "9"
+  ],
+  "31B/true/final/drop_nudges": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "31B/true/final/preserve": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "31B/false/pre_edit/default": [
+   "0",
+   "1",
+   "2"
+  ],
+  "31B/false/pre_edit/drop_nudges": [
+   "0",
+   "1",
+   "2"
+  ],
+  "31B/false/pre_edit/preserve": [
+   "0",
+   "1",
+   "2"
+  ],
+  "31B/false/final/default": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "31B/false/final/drop_nudges": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "31B/false/final/preserve": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "12B/true/pre_edit/default": [],
+  "12B/true/pre_edit/drop_nudges": [
+   "0",
+   "1",
+   "2"
+  ],
+  "12B/true/final/default": [
+   "8",
+   "9"
+  ],
+  "12B/true/final/drop_nudges": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "12B/false/pre_edit/default": [
+   "0",
+   "1",
+   "2"
+  ],
+  "12B/false/pre_edit/drop_nudges": [
+   "0",
+   "1",
+   "2"
+  ],
+  "12B/false/final/default": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "12B/false/final/drop_nudges": [
+   "0",
+   "1",
+   "2",
+   "8",
+   "9"
+  ],
+  "31B/thinking_off": []
+ }
+}

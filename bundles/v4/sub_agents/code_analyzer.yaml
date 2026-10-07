@@ -1,0 +1,12 @@
+name: code_analyzer
+description: >-
+  Read-only code analyzer. Give it the full issue text as `request`. It searches the
+  repository in /workspace and returns a short report with the exact file paths, line
+  ranges, relevant code, related existing tests, root cause and a minimal fix plan.
+  It never edits files.
+model: gemma-4-31b-it-qat-w4a16-ct
+instruction: !include ../prompts/analyzer.md
+tools:
+  - run_command
+  - read_file
+generate_content_config: !include ../configs/analyzer_sampling.yaml

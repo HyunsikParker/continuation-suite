@@ -1,0 +1,15 @@
+name: fixer
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Applies the plan with minimal edits, checks it, and submits the patch.
+instruction: !include ../prompts/fixer.md
+generate_content_config: !include ../configs/sampling.yaml
+include_contents: none
+tools:
+  - run_command
+  - read_file
+  - edit_file
+  - write_file
+  - get_status
+  - submit_patch
+skills:
+  - skills/scout

@@ -1,0 +1,11 @@
+name: locator
+model: gemma-4-31b-it-qat-w4a16-ct
+description: Read-only. Finds where the issue must be fixed and writes a short plan.
+instruction: !include ../prompts/locator.md
+generate_content_config: !include ../configs/locator_sampling.yaml
+output_key: plan
+tools:
+  - run_command
+  - read_file
+skills:
+  - skills/scout

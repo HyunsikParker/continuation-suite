@@ -1,0 +1,6 @@
+agent_class: SequentialAgent
+name: swe_pipeline
+description: Locate the fix with a read-only pass, then edit and submit with a fresh, short context.
+sub_agents:
+  - config_path: sub_agents/locator.yaml
+  - config_path: sub_agents/fixer.yaml

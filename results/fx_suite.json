@@ -1,0 +1,2541 @@
+[
+ {
+  "name": "base_noop_edit",
+  "bundle": "bundles/v5b",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 237,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": 1,
+  "unmatched_requests": 0,
+  "patch_sha8": "4cff1e7a",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 3,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "base_gold_submit",
+  "bundle": "bundles/v5b",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 3,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "base_gold_text_end",
+  "bundle": "bundles/v5b",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 5,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_seq_fixer_only",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 0,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": -1,
+  "unmatched_requests": 0,
+  "patch_sha8": "",
+  "error": "Sandbox execution error: Tool 'submit_patch' not found.\nAvailable tools: run_command, read_file, list_skills, load_skill, load_skill_resource, run_skill_script\n",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 4,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "call submit_patch",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_transfer_fixer_last_fixer_only",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 6,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "coordinator",
+    "n_msgs": 2,
+    "tools": 1,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "locator",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_transfer_locator_last_fixer_only",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 0,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": -1,
+  "unmatched_requests": 0,
+  "patch_sha8": "",
+  "error": "Sandbox execution error: Tool 'submit_patch' not found.\nAvailable tools: transfer_to_agent, run_command, read_file, list_skills, load_skill, load_skill_resource",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 6,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "coordinator",
+    "n_msgs": 2,
+    "tools": 1,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "locator",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_seq_both",
+  "bundle": "bundles/v8",
+  "add_tools": {
+   "sub_agents/locator.yaml": [
+    "submit_patch"
+   ]
+  },
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 5,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "locator",
+    "n_msgs": 9,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_transfer_fixer_last_both",
+  "bundle": "bundles/v8",
+  "add_tools": {
+   "sub_agents/locator.yaml": [
+    "submit_patch"
+   ]
+  },
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 6,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "coordinator",
+    "n_msgs": 2,
+    "tools": 1,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "locator",
+    "n_msgs": 4,
+    "tools": 8,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_transfer_locator_last_both",
+  "bundle": "bundles/v8",
+  "add_tools": {
+   "sub_agents/locator.yaml": [
+    "submit_patch"
+   ]
+  },
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 7,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "coordinator",
+    "n_msgs": 2,
+    "tools": 1,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "locator",
+    "n_msgs": 4,
+    "tools": 8,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 11,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 11,
+    "reply": "call transfer_to_agent",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 8,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 12,
+    "tools": 8,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "locator",
+    "n_msgs": 14,
+    "tools": 8,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_seq_text_end",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "locator",
+    "n_msgs": 13,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_loop2_text_end",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 17,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 6,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 9,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "locator",
+    "n_msgs": 11,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "locator",
+    "n_msgs": 14,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 11,
+    "agent": "locator",
+    "n_msgs": 16,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 12,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 13,
+    "agent": "locator",
+    "n_msgs": 19,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 14,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 15,
+    "agent": "locator",
+    "n_msgs": 21,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 16,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_seq_cutoff",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 0,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": -1,
+  "unmatched_requests": 0,
+  "patch_sha8": "",
+  "error": "Sandbox execution error: Tool 'edit_file' not found.\nAvailable tools: run_command, read_file, list_skills, load_skill, load_skill_resource, run_skill_script\n\nPo",
+  "nudges": 1,
+  "nudge_heads": [
+   "Your previous response reached the token limit before the tool call finished closing (<|to"
+  ],
+  "llm_calls": 4,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "call edit_file",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "route_agenttool",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 2,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 6,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "swe_fixer",
+    "n_msgs": 7,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 9,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "swe_fixer",
+    "n_msgs": 11,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "state_fixer_none",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "locator",
+    "n_msgs": 13,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "state_fixer_default",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 3,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 5,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 8,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "fixer",
+    "n_msgs": 11,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "locator",
+    "n_msgs": 13,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "fixer",
+    "n_msgs": 14,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skiptrue_n2",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 2,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 7,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skiptrue_n3",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 11,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "swe_fixer",
+    "n_msgs": 13,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 15,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skiptrue_n4",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 4,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 11,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 11,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 14,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "swe_fixer",
+    "n_msgs": 16,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "swe_fixer",
+    "n_msgs": 18,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skiptrue_n6",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 6,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 15,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 11,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 14,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "swe_fixer",
+    "n_msgs": 17,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 11,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 12,
+    "agent": "swe_fixer",
+    "n_msgs": 20,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 13,
+    "agent": "swe_fixer",
+    "n_msgs": 22,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 14,
+    "agent": "swe_fixer",
+    "n_msgs": 24,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "render_skiptrue_n3",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 5,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 11,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "swe_fixer",
+    "n_msgs": 13,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 15,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skipfalse_n2",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 7,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skipfalse_n3",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skipfalse_n4",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 11,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "swe_fixer",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "swe_fixer",
+    "n_msgs": 14,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "deleg_skipfalse_n6",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 15,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "swe_fixer",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 11,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 12,
+    "agent": "swe_fixer",
+    "n_msgs": 14,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 13,
+    "agent": "swe_fixer",
+    "n_msgs": 16,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 14,
+    "agent": "swe_fixer",
+    "n_msgs": 18,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "render_skipfalse_n3",
+  "bundle": "bundles/v4",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "swe_fixer",
+    "n_msgs": 2,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "swe_fixer",
+    "n_msgs": 4,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "swe_fixer",
+    "n_msgs": 6,
+    "tools": 7,
+    "reply": "call code_analyzer",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "code_analyzer",
+    "n_msgs": 2,
+    "tools": 2,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "swe_fixer",
+    "n_msgs": 8,
+    "tools": 7,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "swe_fixer",
+    "n_msgs": 10,
+    "tools": 7,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "swe_fixer",
+    "n_msgs": 12,
+    "tools": 7,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "fix_overlay_off_trap",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {
+   "PYTHONPATH": "<overlay dir built by tools/make_overlay.py>",
+   "SWEGEMMA_PROBE_VARIANT": ""
+  },
+  "agent_patch_size": 0,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": -1,
+  "unmatched_requests": 0,
+  "patch_sha8": "",
+  "error": "Sandbox execution error: Tool 'submit_patch' not found.\nAvailable tools: run_command, read_file, list_skills, load_skill, load_skill_resource, run_skill_script\n",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 4,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "call submit_patch",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "fix_plugin_trap",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {
+   "PYTHONPATH": "<overlay dir built by tools/make_overlay.py>",
+   "SWEGEMMA_PROBE_VARIANT": "cb"
+  },
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 4,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 12,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "call submit_patch",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "locator",
+    "n_msgs": 9,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "locator",
+    "n_msgs": 12,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "locator",
+    "n_msgs": 15,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 10,
+    "agent": "locator",
+    "n_msgs": 18,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 11,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "fix_salvage_trap",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {
+   "PYTHONPATH": "<overlay dir built by tools/make_overlay.py>",
+   "SWEGEMMA_PROBE_VARIANT": "salvage"
+  },
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 1,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 4,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "call submit_patch",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "fix_official_skill_throw",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 0,
+  "patch_has_probe_edit": false,
+  "resolved": false,
+  "test_exit_code": -1,
+  "unmatched_requests": 0,
+  "patch_sha8": "",
+  "error": "Sandbox execution error: 'list' object has no attribute 'startswith'",
+  "nudges": 0,
+  "nudge_heads": [],
+  "llm_calls": 3,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "call run_skill_script",
+    "unmatched": false
+   }
+  ]
+ },
+ {
+  "name": "fix_plugin_skill_throw",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {
+   "PYTHONPATH": "<overlay dir built by tools/make_overlay.py>",
+   "SWEGEMMA_PROBE_VARIANT": "cb"
+  },
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co",
+   "Please continue your work using the available tools, or call submit_patch when you have co"
+  ],
+  "llm_calls": 10,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "call run_skill_script",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "fixer",
+    "n_msgs": 6,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "locator",
+    "n_msgs": 9,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "locator",
+    "n_msgs": 12,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "locator",
+    "n_msgs": 15,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 9,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
+ }
+]
