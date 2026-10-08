@@ -1,4 +1,18 @@
 {
+ "provenance": {
+  "model_file": "gemma-4-12b-it-qat-q4_0.gguf",
+  "model_file_sha256": "faff1a63667fac17ac5e777f47114688fcefea96e220e211aaa8d62c2c4561f1",
+  "llama_cpp": "0.5.0 (7fe450e19305b828c199d602c23a8337aaa1f03b)",
+  "sampling": {
+   "temperature": 0.2,
+   "top_p": 0.95,
+   "top_k": 40.0,
+   "max_completion_tokens": 1024,
+   "seed": "sample.seed",
+   "enable_thinking": false
+  },
+  "history_id": "samples[].history"
+ },
  "histories": [
   "requests_ctx_cutoff_fastapi_11355",
   "requests_ctx_cutoff_fastapi_12942",

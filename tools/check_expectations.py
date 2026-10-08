@@ -5,12 +5,12 @@ usage: python3 tools/check_expectations.py [--expect probes/expectations.json]
 Checks, each printed as PASS/FAIL (exit status 1 if any check fails):
   cases     per case in results/fx_suite.json: receiver sequence, number of continuation messages, verification
             result and patch hash, against probes/expectations.json
-  history   results/requests_state_fixer_{none,default}.jsonl (if present): markers in the fixer's request after the
+  history   required results/requests_state_fixer_{none,default}.jsonl: markers in the fixer's request after the
             continuation message
-  render    results/render_31b_vs_12b.jsonl (if present): reasoning markers rendered for every saved render (31B and 12B
-            templates, all diagnostics, and the thinking-off control)
+  render    required results/render_31b_vs_12b.jsonl: reasoning markers and template hashes for every saved render
+            (31B and 12B templates, all diagnostics, and the thinking-off control)
   stub      no request may reach an agent the stage-keyed script does not name (counted per case)
-  autogen   results/autogen_rr.json (if present): model-request order and saved next_speaker_index per scenario
+  autogen   required results/autogen_rr.json: model-request order and saved next_speaker_index per scenario
 """
 
 import argparse
@@ -26,6 +26,12 @@ def check(name: str, ok: bool, detail: str, failures: list) -> None:
     print(f"{'PASS' if ok else 'FAIL'}  {name}  {detail}")
     if not ok:
         failures.append(name)
+
+
+def skip(name: str, detail: str, failures: list) -> None:
+    """Report unavailable evidence and make the oracle fail closed."""
+    print(f"SKIP  {name}  {detail}")
+    failures.append(name)
 
 
 def main() -> None:
@@ -51,7 +57,7 @@ def main() -> None:
     for setting, want in exp["history"].items():
         log = RES / f"requests_state_fixer_{setting}.jsonl"
         if not log.exists():
-            print(f"SKIP  history/{setting}  (no request log; run the suite first)")
+            skip(f"history/{setting}", "(no request log; run the suite first)", failures)
             continue
         rows = [json.loads(l) for l in log.read_text().splitlines()]
         fixer = [r for r in rows if r["body"]["messages"][0]["content"].startswith("You fix one issue")]
@@ -74,10 +80,15 @@ def main() -> None:
                 key = f"{tmpl}/thinking_off"
             want = exp["render"].get(key)
             got = [s.rsplit("-", 1)[-1] for s in d["rendered_sentinels"]]
-            check(f"render/{key}", want is not None and got == want, f"rendered {got}", failures)
+            want_sha = exp["render_template_sha256"][tmpl]
+            got_sha = d.get("chat_template_sha256")
+            detail = f"rendered {got}; template sha256 {got_sha or 'missing'}"
+            check(f"render/{key}", want is not None and got == want and got_sha == want_sha, detail, failures)
             seen_keys.add(key)
         missing = sorted(set(exp["render"]) - seen_keys)
         check("render/complete", not missing, f"missing {missing}" if missing else f"{len(seen_keys)} renders", failures)
+    else:
+        skip("render/all", "(no render log; run the suite with TOKENIZER_DIR and TEMPLATE)", failures)
 
     apath = RES / "autogen_rr.json"
     if apath.exists():
@@ -85,6 +96,8 @@ def main() -> None:
             want = exp["autogen"][s["name"]]
             got = {"order": [q["agent"] for q in s["requests"]], "next_speaker_index": [x["next_speaker_index"] for x in s["runs"]]}
             check(f"autogen/{s['name']}", got == want, f"{got}", failures)
+    else:
+        skip("autogen/all", "(no AutoGen results; run the suite first)", failures)
 
     print(f"\n{len(failures)} failing check(s)")
     sys.exit(1 if failures else 0)

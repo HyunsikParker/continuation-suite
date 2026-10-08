@@ -1,5 +1,7 @@
 # continuation-suite
 
+Release: **v1.0.1**
+
 CPU tests for what a harness's "continue" message does inside a multi-agent coding agent: which agent receives it,
 which tools that agent offers, and what history and reasoning the model then reads. Built for the Gemma 4 Developer
 Agent harness (Google ADK) and checked against a second framework (AutoGen AgentChat). Companion to the paper-track
@@ -66,6 +68,9 @@ markers in the fixer's request after a continuation message under `include_conte
 saved render, 31B and 12B templates, diagnostics and the thinking-off control (21), plus a completeness check that
 all expected renders are present (1); and the AutoGen request order with the saved `next_speaker_index` (7).
 A stub request from an unnamed agent is answered "Done." and flagged, so it fails its case.
+Missing history, render or AutoGen artifacts are printed as `SKIP` and count as failures. `run_all.sh` also exits
+before running any case unless both `TOKENIZER_DIR` and `TEMPLATE` are set to existing local inputs. Every saved
+render row records the SHA-256 of the effective chat template.
 
 ## Adding a case or a framework
 

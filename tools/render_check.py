@@ -9,6 +9,7 @@ appear in the raw HTTP messages (reasoning / reasoning_content fields) and how m
 """
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -54,14 +55,27 @@ def main() -> None:
                 raw |= set(pat.findall(m[k]))
     extra = {"preserve_thinking": True} if args.preserve_thinking else {}
     if args.chat_template_file:
-        extra["chat_template"] = Path(args.chat_template_file).read_text()
+        template_path = Path(args.chat_template_file)
+        template_bytes = template_path.read_bytes()
+        extra["chat_template"] = template_bytes.decode()
+        template_source = template_path.parent.name
+    else:
+        template_path = Path(args.template_dir) / "chat_template.jinja"
+        if template_path.is_file():
+            template_bytes = template_path.read_bytes()
+            template_source = "tokenizer-dir"
+        else:
+            template_bytes = tok.get_chat_template().encode()
+            template_source = "tokenizer-config"
+    template_sha256 = hashlib.sha256(template_bytes).hexdigest()
     rendered = tok.apply_chat_template(msgs, tools=body.get("tools"), tokenize=False, add_generation_prompt=True,
                                        enable_thinking=True, **extra)
     shown = set(pat.findall(rendered))
     users = sum(1 for m in msgs if m.get("role") == "user")
     plain_raw = json.dumps(msgs).count(args.plain)
     plain_shown = rendered.count(args.plain)
-    print(json.dumps({"log": Path(args.log).name, "template": Path(args.chat_template_file).parent.name or "tokenizer-dir",
+    print(json.dumps({"log": Path(args.log).name, "template": template_source,
+                      "chat_template_sha256": template_sha256,
                       "preserve_thinking": args.preserve_thinking,
                       "request_index": args.request_index, "drop_nudges": args.drop_nudges,
                       "plain_raw": plain_raw, "plain_rendered": plain_shown,

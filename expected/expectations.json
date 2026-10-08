@@ -567,6 +567,10 @@
    ]
   }
  },
+ "render_template_sha256": {
+  "31B": "ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4",
+  "12B": "36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0"
+ },
  "render": {
   "31B/true/pre_edit/default": [],
   "31B/true/pre_edit/drop_nudges": [
