@@ -23,6 +23,7 @@ records every request, and answers from per-agent scripts. It never chooses whic
 | `tools/autogen_adapter.py` | AutoGen RoundRobinGroupChat scenarios RR0-RR5 driven by the same stub |
 | `tools/replay_nudge.py` | replays captured post-continuation requests against a real OpenAI-compatible model server |
 | `tools/make_report.py` | regenerates every table from saved results; `tools/make_figure1.py` draws Figure 1 |
+| `tools/notebook_survey.py` | counts agent-configuration settings in pulled public competition notebooks (text only, nothing executed) |
 | `bundles/v4`, `v5b`, `v8` | the agent bundles used (AgentTool root, single agent, SequentialAgent pipeline) |
 | `results/` | saved outputs behind the paper's tables (no prompts, no competition data) |
 
@@ -91,6 +92,15 @@ The overlays (`cb`, `salvage`) are diagnostics of where a failure chain can be c
 Known harness reports this suite reproduces as credited regression cases: an undeclared tool call ends the task
 (https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/745028) and generic exceptions skip the
 working-tree fallback (https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/744692).
+
+## Notebook survey
+
+`results/notebook_survey_20261011.csv` holds one row per public notebook of the competition on 11 October 2026
+(154 notebooks) with 0/1 flags for the settings the suite tests; no notebook code is included. Of the 98 notebooks
+that write an agent configuration, 36 declare an AgentTool and 33 of these keep `skip_summarization: true`, the
+configuration of the competition's sample submission; three use a SequentialAgent or LoopAgent root and four set
+`include_contents: none`. To recount, pull the notebooks as described in `tools/notebook_survey.py` and run it.
+Text matching misses settings kept in attached datasets, and copies of a notebook are counted separately.
 
 ## License
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2 - 2026-10-11
+
+- Add `tools/notebook_survey.py`, which counts agent-configuration settings in a directory of pulled Kaggle
+  notebooks, and `results/notebook_survey_20261011.csv`, the per-notebook flags behind the counts in the writeup.
+
+Suite cases, renders and replay results are unchanged from v1.0.1.
+
 ## 1.0.1 - 2026-10-08
 
 - Fail `run_all.sh` when `TOKENIZER_DIR` or `TEMPLATE` is missing instead of silently omitting template renders.
