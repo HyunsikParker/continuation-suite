@@ -1,6 +1,6 @@
 # continuation-suite
 
-Release: **v1.0.1**
+Release: **v1.1.0**
 
 CPU tests for what a harness's "continue" message does inside a multi-agent coding agent: which agent receives it,
 which tools that agent offers, and what history and reasoning the model then reads. Built for the Gemma 4 Developer
@@ -23,6 +23,7 @@ records every request, and answers from per-agent scripts. It never chooses whic
 | `tools/autogen_adapter.py` | AutoGen RoundRobinGroupChat scenarios RR0-RR5 driven by the same stub |
 | `tools/replay_nudge.py` | replays captured post-continuation requests against a real OpenAI-compatible model server |
 | `tools/make_report.py` | regenerates every table from saved results; `tools/make_figure1.py` draws Figure 1 |
+| `tools/compare_builds.py` | compares two runs case by case, e.g. the suite on two harness builds |
 | `tools/notebook_survey.py` | counts agent-configuration settings in pulled public competition notebooks (text only, nothing executed) |
 | `bundles/v4`, `v5b`, `v8` | the agent bundles used (AgentTool root, single agent, SequentialAgent pipeline) |
 | `results/` | saved outputs behind the paper's tables (no prompts, no competition data) |
@@ -73,6 +74,34 @@ Missing history, render or AutoGen artifacts are printed as `SKIP` and count as 
 before running any case unless both `TOKENIZER_DIR` and `TEMPLATE` are set to existing local inputs. Every saved
 render row records the SHA-256 of the effective chat template.
 
+## Other harness builds
+
+`expected/expectations.json` describes the pinned build (adk_submission 0.2.12, swegemma 0.2.7). To test a later
+official build, install its wheels into another virtual environment, point `.venv-official` at it, run
+`./run_all.sh`, and compare the case results with `python3 tools/compare_builds.py <reference results dir> results`.
+
+The official wheelhouse of 8 October 2026 changed two wheels (google-adk 1.36.1 is unchanged):
+  - `adk_submission-0.2.13-py3-none-any.whl` `8a19afc752aa6cec4e98e25b09aa1fe4b020ad902af8f014d294c85d70247d5d`
+  - `swegemma-0.2.10-py3-none-any.whl` `13261f9d5581840f7600d0d66aea10d6a3e4b53661409e072e55f253436c1252`
+
+On that build 55 of the 61 pinned checks pass. The six failures are the cases whose pinned run ended on an
+undeclared or failing tool call (`submit_patch` or `edit_file` not offered to the receiver, or a list-valued skill
+argument). The new build returns such errors to the model, so these runs continue through more continuation
+messages and finish with the passing patch. The new build's source also catches generic exceptions before the
+working-tree fallback; returned tool errors and that handler are the changes the `cb` and `salvage` overlays made.
+Receivers after continuation, worker history, the reasoning markers of every render and the AutoGen checks are
+unchanged; some rendered prompts are 15 tokens shorter.
+`expected/expectations_swegemma-0.2.10.json` records that build's outcomes
+(`EXPECT=expected/expectations_swegemma-0.2.10.json ./run_all.sh` passes all 61 checks), and
+`results/builds/swegemma-0.2.10/` holds its case results and the oracle output against both files. A rerun of the
+pinned build on the same day still passed all 61 pinned checks.
+
+The wheelhouse of 12 October 2026 changed only swegemma (`swegemma-0.2.11-py3-none-any.whl`
+`9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3`; it adds LoRA adapter discovery and a separate
+verification timeout). All 30 case results equal those of 0.2.10, so the same expectation file applies
+(55 of 61 pinned checks, 61 of 61 with `expected/expectations_swegemma-0.2.10.json`); see
+`results/builds/swegemma-0.2.11/`.
+
 ## Adding a case or a framework
 
 A case is one entry in the list written by `tools/make_suite_cases.py`: a bundle, optional file overrides, the task
@@ -91,7 +120,8 @@ The overlays (`cb`, `salvage`) are diagnostics of where a failure chain can be c
 
 Known harness reports this suite reproduces as credited regression cases: an undeclared tool call ends the task
 (https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/745028) and generic exceptions skip the
-working-tree fallback (https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/744692).
+working-tree fallback (https://www.kaggle.com/competitions/gemma-4-developer-agent/discussion/744692). On the
+8 October build the first no longer ends the task (see Other harness builds).
 
 ## Notebook survey
 

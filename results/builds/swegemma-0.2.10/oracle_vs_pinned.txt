@@ -1,0 +1,63 @@
+PASS  cases/base_noop_edit  
+PASS  cases/base_gold_submit  
+PASS  cases/base_gold_text_end  
+FAIL  cases/route_seq_fixer_only  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
+PASS  cases/route_transfer_fixer_last_fixer_only  
+FAIL  cases/route_transfer_locator_last_fixer_only  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
+PASS  cases/route_seq_both  
+PASS  cases/route_transfer_fixer_last_both  
+PASS  cases/route_transfer_locator_last_both  
+PASS  cases/route_seq_text_end  
+PASS  cases/route_loop2_text_end  
+FAIL  cases/route_seq_cutoff  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
+PASS  cases/route_agenttool  
+PASS  cases/state_fixer_none  
+PASS  cases/state_fixer_default  
+PASS  cases/deleg_skiptrue_n2  
+PASS  cases/deleg_skiptrue_n3  
+PASS  cases/deleg_skiptrue_n4  
+PASS  cases/deleg_skiptrue_n6  
+PASS  cases/render_skiptrue_n3  
+PASS  cases/deleg_skipfalse_n2  
+PASS  cases/deleg_skipfalse_n3  
+PASS  cases/deleg_skipfalse_n4  
+PASS  cases/deleg_skipfalse_n6  
+PASS  cases/render_skipfalse_n3  
+FAIL  cases/fix_overlay_off_trap  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
+PASS  cases/fix_plugin_trap  
+FAIL  cases/fix_salvage_trap  mismatch in ['receivers', 'nudges']
+FAIL  cases/fix_official_skill_throw  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
+PASS  cases/fix_plugin_skill_throw  
+PASS  history/none  seen ['C']
+PASS  history/default  seen ['A', 'B', 'C', 'edit', 'nudge']
+PASS  render/31B/true/pre_edit/default  rendered []; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/true/pre_edit/drop_nudges  rendered ['0', '1', '2']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/true/pre_edit/preserve  rendered ['0', '1', '2']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/true/final/default  rendered ['8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/true/final/drop_nudges  rendered ['0', '1', '2', '8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/true/final/preserve  rendered ['0', '1', '2', '8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/pre_edit/default  rendered ['0', '1', '2']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/pre_edit/drop_nudges  rendered ['0', '1', '2']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/pre_edit/preserve  rendered ['0', '1', '2']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/final/default  rendered ['0', '1', '2', '8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/final/drop_nudges  rendered ['0', '1', '2', '8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/31B/false/final/preserve  rendered ['0', '1', '2', '8', '9']; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/12B/true/pre_edit/default  rendered []; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/true/pre_edit/drop_nudges  rendered ['0', '1', '2']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/true/final/default  rendered ['8', '9']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/true/final/drop_nudges  rendered ['0', '1', '2', '8', '9']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/false/pre_edit/default  rendered ['0', '1', '2']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/false/pre_edit/drop_nudges  rendered ['0', '1', '2']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/false/final/default  rendered ['0', '1', '2', '8', '9']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/12B/false/final/drop_nudges  rendered ['0', '1', '2', '8', '9']; template sha256 36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0
+PASS  render/31B/thinking_off  rendered []; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4
+PASS  render/complete  21 renders
+PASS  autogen/RR0_baseline  {'order': ['L', 'F', 'L'], 'next_speaker_index': [1]}
+PASS  autogen/RR1_resume_after_L  {'order': ['L', 'F'], 'next_speaker_index': [1, 0]}
+PASS  autogen/RR2_resume_after_F  {'order': ['L', 'F', 'L'], 'next_speaker_index': [1, 0, 1]}
+PASS  autogen/RR3_fresh_team  {'order': ['L'], 'next_speaker_index': [1]}
+PASS  autogen/RR4_repeated  {'order': ['L', 'F', 'L', 'F', 'L'], 'next_speaker_index': [1, 0, 1, 0, 1]}
+PASS  autogen/RR5_nudge_after_L  {'order': ['L', 'F'], 'next_speaker_index': [1, 0]}
+PASS  autogen/RR5_nudge_after_F  {'order': ['L', 'F', 'L'], 'next_speaker_index': [1, 0, 1]}
+
+6 failing check(s)

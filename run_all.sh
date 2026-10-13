@@ -41,4 +41,5 @@ python3 tools/render_check.py --template-dir "$TOKENIZER_DIR" --chat-template-fi
 
 $PY_AUTOGEN tools/autogen_adapter.py --out results/autogen_rr.json --port 8030
 python3 tools/make_report.py --out paper/TABLES.md
-python3 tools/check_expectations.py --expect expected/expectations.json
+# EXPECT selects the oracle for another harness build, e.g. expected/expectations_swegemma-0.2.10.json
+python3 tools/check_expectations.py --expect "${EXPECT:-expected/expectations.json}"

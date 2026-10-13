@@ -90,6 +90,7 @@ def main() -> None:
           {"name": "fix_plugin_skill_throw", "bundle": "bundles/v8", "env": dict(ov, SWEGEMMA_PROBE_VARIANT="cb"), "script": throw}]
     for case in c:
         case["task_id"] = "tinytable_0001"
+    Path(args.out).parent.mkdir(parents=True, exist_ok=True)  # probes/ is not tracked
     Path(args.out).write_text(json.dumps(c, indent=1))
     print(len(c), "cases")
 

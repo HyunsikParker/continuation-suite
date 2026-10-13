@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.1.0 - 2026-10-13
+
+- Add `expected/expectations_swegemma-0.2.10.json`, the oracle for the official wheelhouse of 8 October 2026
+  (adk_submission 0.2.13, swegemma 0.2.10), and let `run_all.sh` select an oracle with `EXPECT`.
+- Add `tools/compare_builds.py`, which compares two runs case by case.
+- Fix a fresh clone stopping at its first step: `tools/make_suite_cases.py` now creates the untracked `probes/`
+  directory. Releases 1.0.0 to 1.0.2 ran only from a working copy that already had it.
+- Add `results/builds/swegemma-0.2.10/`: case results of that build and the oracle output against the pinned and the
+  new expectations (55 of 61 and 61 of 61).
+- Add `results/builds/swegemma-0.2.11/` for the wheelhouse of 12 October 2026 (swegemma 0.2.11): all 30 case results
+  equal those of 0.2.10, so the 0.2.10 expectations apply (55 of 61 pinned, 61 of 61).
+
+The pinned expectations, cases, renders and replay results are unchanged from v1.0.2.
+
 ## 1.0.2 - 2026-10-11
 
 - Add `tools/notebook_survey.py`, which counts agent-configuration settings in a directory of pulled Kaggle
