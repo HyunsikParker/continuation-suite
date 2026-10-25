@@ -1,6 +1,6 @@
 # continuation-suite
 
-Release: **v1.1.0**
+Release: **v1.2.0**
 
 CPU tests for what a harness's "continue" message does inside a multi-agent coding agent: which agent receives it,
 which tools that agent offers, and what history and reasoning the model then reads. Built for the Gemma 4 Developer
@@ -16,7 +16,7 @@ records every request, and answers from per-agent scripts. It never chooses whic
 |---|---|
 | `tools/stub_model_server.py` | recording OpenAI-compatible stub; scripts can be keyed by agent (system-prompt substring) |
 | `tools/make_fixture.py` | builds the synthetic task `tinytable_0001` (reproducible base commit `abc65ab1`) |
-| `tools/make_suite_cases.py` | writes the 30 suite cases (routing, history, delegation, rendering, regressions, overlays) |
+| `tools/make_suite_cases.py` | writes the 31 suite cases (routing, history, delegation, rendering, regressions, overlays) |
 | `tools/nudge_probe.py` | runs cases through the official `swegemma eval` CLI with the subprocess sandbox |
 | `tools/render_check.py` | renders captured requests with a Gemma 4 chat template and reports which reasoning markers survive |
 | `tools/make_overlay.py` | optional harness-side diagnostics built from your own installed swegemma (nothing of it is shipped) |
@@ -25,6 +25,8 @@ records every request, and answers from per-agent scripts. It never chooses whic
 | `tools/make_report.py` | regenerates every table from saved results; `tools/make_figure1.py` draws Figure 1 |
 | `tools/compare_builds.py` | compares two runs case by case, e.g. the suite on two harness builds |
 | `tools/notebook_survey.py` | counts agent-configuration settings in pulled public competition notebooks (text only, nothing executed) |
+| `tools/continuation_triggers.py` | counts continuation messages by trigger in recorded official-harness runs (see Continuation triggers) |
+| `tools/undeclared_calls.py` | counts tool calls that name a tool the request did not offer, in the same recordings |
 | `bundles/v4`, `v5b`, `v8` | the agent bundles used (AgentTool root, single agent, SequentialAgent pipeline) |
 | `results/` | saved outputs behind the paper's tables (no prompts, no competition data) |
 
@@ -57,22 +59,23 @@ records every request, and answers from per-agent scripts. It never chooses whic
 
 The script builds the fixture, writes the cases, builds the optional overlay from your installed swegemma, runs the
 suite, renders the reasoning checks, runs the AutoGen scenarios, regenerates `paper/TABLES.md`, and runs the oracles.
-On an Apple M4 Mac mini two clean runs took 250 and 319 seconds: about three minutes for the 30 ADK cases (roughly six seconds
-each, including sandbox setup), the rest for 21 template renders and the AutoGen scenarios, ending with 0 failing
-checks out of 61.
+On an Apple M4 Mac mini two clean runs of release 1.0.0 took 250 and 319 seconds: about three minutes for the 30 ADK
+cases (roughly six seconds each, including sandbox setup), the rest for 21 template renders and the AutoGen scenarios,
+ending with 0 failing checks out of 61. Release 1.2.0 has 31 cases and 62 checks; its run on 25 October took 310
+seconds on the same machine, with 0 failing checks.
 
 ## Oracles
 
 `tools/check_expectations.py` compares the observed results with `expected/expectations.json` and exits non-zero on
 any mismatch: per case, the model-request order by agent, the number of continuation messages, the verification
-result, the patch hash, and that no request reached an agent the stage-keyed script does not name (30 checks); the
-markers in the fixer's request after a continuation message under `include_contents: none` and the default (2); every
-saved render, 31B and 12B templates, diagnostics and the thinking-off control (21), plus a completeness check that
-all expected renders are present (1); and the AutoGen request order with the saved `next_speaker_index` (7).
-A stub request from an unnamed agent is answered "Done." and flagged, so it fails its case.
-Missing history, render or AutoGen artifacts are printed as `SKIP` and count as failures. `run_all.sh` also exits
-before running any case unless both `TOKENIZER_DIR` and `TEMPLATE` are set to existing local inputs. Every saved
-render row records the SHA-256 of the effective chat template.
+result, the patch hash, and that no request reached an agent the stage-keyed script does not name (31 checks; for
+`route_seq_length` also the opening of each continuation message); the markers in the fixer's request after a
+continuation message under `include_contents: none` and the default (2); every saved render, 31B and 12B templates,
+diagnostics and the thinking-off control (21), plus a completeness check that all expected renders are present (1);
+and the AutoGen request order with the saved `next_speaker_index` (7). A stub request from an unnamed agent is
+answered "Done." and flagged, so it fails its case. Missing history, render or AutoGen artifacts are printed as `SKIP`
+and count as failures. `run_all.sh` also exits before running any case unless both `TOKENIZER_DIR` and `TEMPLATE` are
+set to existing local inputs. Every saved render row records the SHA-256 of the effective chat template.
 
 ## Other harness builds
 
@@ -84,32 +87,33 @@ The official wheelhouse of 8 October 2026 changed two wheels (google-adk 1.36.1 
   - `adk_submission-0.2.13-py3-none-any.whl` `8a19afc752aa6cec4e98e25b09aa1fe4b020ad902af8f014d294c85d70247d5d`
   - `swegemma-0.2.10-py3-none-any.whl` `13261f9d5581840f7600d0d66aea10d6a3e4b53661409e072e55f253436c1252`
 
-On that build 55 of the 61 pinned checks pass. The six failures are the cases whose pinned run ended on an
-undeclared or failing tool call (`submit_patch` or `edit_file` not offered to the receiver, or a list-valued skill
-argument). The new build returns such errors to the model, so these runs continue through more continuation
-messages and finish with the passing patch. The new build's source also catches generic exceptions before the
-working-tree fallback; returned tool errors and that handler are the changes the `cb` and `salvage` overlays made.
-Receivers after continuation, worker history, the reasoning markers of every render and the AutoGen checks are
-unchanged; some rendered prompts are 15 tokens shorter.
+On that build 56 of the 62 pinned checks pass (55 of 61 with release 1.1.0, before `route_seq_length` was added). The
+six failures are the cases whose pinned run ended on an undeclared or failing tool call (`submit_patch` or `edit_file`
+not offered to the receiver, or a list-valued skill argument). The new build returns such errors to the model, so
+these runs continue through more continuation messages and finish with the passing patch. The new build's source also
+catches generic exceptions before the working-tree fallback; returned tool errors and that handler are the changes the
+`cb` and `salvage` overlays made. Receivers after continuation, worker history, the reasoning markers of every render
+and the AutoGen checks are unchanged; some rendered prompts are 15 tokens shorter.
 `expected/expectations_swegemma-0.2.10.json` records that build's outcomes
-(`EXPECT=expected/expectations_swegemma-0.2.10.json ./run_all.sh` passes all 61 checks), and
+(`EXPECT=expected/expectations_swegemma-0.2.10.json ./run_all.sh` passes all 62 checks), and
 `results/builds/swegemma-0.2.10/` holds its case results and the oracle output against both files. A rerun of the
-pinned build on the same day still passed all 61 pinned checks.
+pinned build on the same day still passed all 61 pinned checks. The case added in 1.2.0, `route_seq_length`, has the
+same outcome on the pinned and both October builds.
 
 The wheelhouse of 12 October 2026 changed only swegemma (`swegemma-0.2.11-py3-none-any.whl`
 `9ad876581f3acde8ec3c369858f0834e2b9f41a3cffce3ca42f09cb090aea9d3`; it adds LoRA adapter discovery and a separate
-verification timeout). All 30 case results equal those of 0.2.10, so the same expectation file applies
-(55 of 61 pinned checks, 61 of 61 with `expected/expectations_swegemma-0.2.10.json`); see
-`results/builds/swegemma-0.2.11/`.
+verification timeout). All 31 case results equal those of 0.2.10, so the same expectation file applies (56 of 62
+pinned checks, 62 of 62 with `expected/expectations_swegemma-0.2.10.json`); see `results/builds/swegemma-0.2.11/`.
 
 ## Adding a case or a framework
 
 A case is one entry in the list written by `tools/make_suite_cases.py`: a bundle, optional file overrides, the task
 id, and a script. Scripts keyed by agent (`{"by_agent": {"<text in that agent's system prompt>": [steps]}}`) let each
-agent follow its own steps, so the framework, not the script, decides who runs next. Add the expected outcome under
-`cases` in `expected/expectations.json`. A new framework needs an adapter that drives its native resume or continue
-API against the stub and records the same fields as `tools/autogen_adapter.py`: stop point, receiver, offered tools,
-request history and outcome.
+agent follow its own steps, so the framework, not the script, decides who runs next. A text step with `"finish":
+"length"` ends the turn as if the output-token limit had been reached (`route_seq_length`). Add the expected outcome
+under `cases` in `expected/expectations.json`. A new framework needs an adapter that drives its native resume or
+continue API against the stub and records the same fields as `tools/autogen_adapter.py`: stop point, receiver, offered
+tools, request history and outcome.
 
 ## Reading the results
 
@@ -131,6 +135,28 @@ that write an agent configuration, 36 declare an AgentTool and 33 of these keep 
 configuration of the competition's sample submission; three use a SequentialAgent or LoopAgent root and four set
 `include_contents: none`. To recount, pull the notebooks as described in `tools/notebook_survey.py` and run it.
 Text matching misses settings kept in attached datasets, and copies of a notebook are counted separately.
+
+## Continuation triggers in official-harness runs
+
+`results/p1_continuations_20261025.csv` and `results/p1_tool_calls_20261025.csv` hold one row per run of two sampling
+jobs with the official Evaluator (12 October wheelhouse) on Kaggle's 4 x L4 serving `gemma-4-12b-it-qat-w4a16-ct`: a
+single-agent bundle that declares all nine harness tools (8 minutes, 28 tool calls, thinking budget 4,096, 8,192
+output tokens) ran each of the 105 public tasks marked sound without a dependency repair in
+`dmitriigluzdov/gemma-4-task-soundness-and-local-results` (CC BY 4.0) once per temperature. Column `source` names the
+job: `kaggle_p1_full` ran on 14 October 2026 at temperatures 0.2 and 0.7 (210 runs) and `kaggle_p1_sampler_b` on
+25 October at 0.4, 0.5 and 0.9 (315 runs); column `pass` gives the temperature (`t02` is 0.2). A LiteLLM callback
+recorded every successful model call and the harness wrote its traces; both contain the competition tasks and are not
+shipped, and the CSVs hold run ids and counts only. `tools/continuation_triggers.py` and `tools/undeclared_calls.py`
+recount them from such run folders; their docstrings give the layout.
+
+The traces record 69 continuation messages in 61 of the 525 runs, never more than two per run: 44 with the "token
+limit while thinking" wording after a response stopped at the 8,192-token output limit (`finish_reason` length), 7
+with the cut-off tool-call wording and 18 generic ones (14 October: 21, 1 and 6 in 23 of its 210 runs). The call log,
+which keeps successful calls only, shows 61: seven of the eight it lacks were sent in runs that then ended at the
+8-minute limit. 182 runs ended at the time limit, 140 at the tool-call budget and 203 without a harness error. None of
+the 12,774 tool calls in the traces (12,688 in the call log, plus 20 left in the text) names an undeclared tool. With
+one agent the continuation always returns to the agent that stopped, so these runs show how often and why it fires,
+not where multi-agent routing sends it.
 
 ## License
 

@@ -4,7 +4,8 @@ usage: python3 tools/check_expectations.py [--expect probes/expectations.json]
 
 Checks, each printed as PASS/FAIL (exit status 1 if any check fails):
   cases     per case in results/fx_suite.json: receiver sequence, number of continuation messages, verification
-            result and patch hash, against probes/expectations.json
+            result and patch hash (and the opening of each continuation message where the expectation lists
+            nudge_heads), against probes/expectations.json
   history   required results/requests_state_fixer_{none,default}.jsonl: markers in the fixer's request after the
             continuation message
   render    required results/render_31b_vs_12b.jsonl: reasoning markers and template hashes for every saved render
@@ -48,7 +49,8 @@ def main() -> None:
             check(f"cases/{name}", False, "missing from results", failures)
             continue
         got = {"receivers": [q["agent"] for q in r["requests"]], "nudges": r["nudges"], "resolved": r["resolved"],
-               "patch_sha8": r["patch_sha8"], "unmatched_requests": r.get("unmatched_requests", 0)}
+               "patch_sha8": r["patch_sha8"], "unmatched_requests": r.get("unmatched_requests", 0),
+               "nudge_heads": r.get("nudge_heads")}  # compared only for cases whose expectation lists it
         diffs = [k for k in e if got.get(k) != e[k]]
         check(f"cases/{name}", not diffs, f"mismatch in {diffs}" if diffs else "", failures)
 

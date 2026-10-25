@@ -516,6 +516,28 @@
    "resolved": true,
    "patch_sha8": "53b22d19",
    "unmatched_requests": 0
+  },
+  "route_seq_length": {
+   "receivers": [
+    "locator",
+    "fixer",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer",
+    "locator",
+    "fixer"
+   ],
+   "nudges": 3,
+   "resolved": true,
+   "patch_sha8": "53b22d19",
+   "unmatched_requests": 0,
+   "nudge_heads": [
+    "Your previous response reached the token limit while thinking before a tool call was compl",
+    "Your previous response reached the token limit while thinking before a tool call was compl",
+    "Your previous response reached the token limit while thinking before a tool call was compl"
+   ]
   }
  },
  "history": {

@@ -2900,5 +2900,100 @@
     "unmatched": false
    }
   ]
+ },
+ {
+  "name": "route_seq_length",
+  "bundle": "bundles/v8",
+  "add_tools": {},
+  "env": {},
+  "agent_patch_size": 532,
+  "patch_has_probe_edit": false,
+  "resolved": true,
+  "test_exit_code": 0,
+  "unmatched_requests": 0,
+  "patch_sha8": "53b22d19",
+  "error": "",
+  "nudges": 3,
+  "nudge_heads": [
+   "Your previous response reached the token limit while thinking before a tool call was compl",
+   "Your previous response reached the token limit while thinking before a tool call was compl",
+   "Your previous response reached the token limit while thinking before a tool call was compl"
+  ],
+  "llm_calls": 9,
+  "eval_exit": 0,
+  "requests": [
+   {
+    "n": 0,
+    "agent": "locator",
+    "n_msgs": 2,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 1,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "call run_command",
+    "unmatched": false
+   },
+   {
+    "n": 2,
+    "agent": "fixer",
+    "n_msgs": 4,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 3,
+    "agent": "locator",
+    "n_msgs": 7,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 4,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 5,
+    "agent": "locator",
+    "n_msgs": 10,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 6,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 7,
+    "agent": "locator",
+    "n_msgs": 13,
+    "tools": 6,
+    "reply": "text",
+    "unmatched": false
+   },
+   {
+    "n": 8,
+    "agent": "fixer",
+    "n_msgs": 2,
+    "tools": 10,
+    "reply": "text",
+    "unmatched": false
+   }
+  ]
  }
 ]

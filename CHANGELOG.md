@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.2.0 - 2026-10-25
+
+- Add `tools/continuation_triggers.py` and `tools/undeclared_calls.py`, which count continuation messages by trigger
+  and tool calls that name undeclared tools in recorded official-harness runs, and their per-run counts for 525 Kaggle
+  runs of Gemma 4 12B in two jobs (14 and 25 October 2026), `results/p1_continuations_20261025.csv` and
+  `results/p1_tool_calls_20261025.csv` (README, "Continuation triggers in official-harness runs").
+- Add the case `route_seq_length`, in which the fixer's turn ends at the output-token limit: text steps of
+  `tools/stub_model_server.py` accept `"finish": "length"`, `tools/check_expectations.py` also compares the opening of
+  each continuation message when an expectation lists `nudge_heads`, and both expectation files and
+  `tools/make_report.py` include the case. The suite now has 31 cases and 62 checks.
+- `results/builds/swegemma-0.2.10/` and `results/builds/swegemma-0.2.11/` now hold release 1.2.0 runs: 56 of 62 pinned
+  checks (the same six failures as 1.1.0) and 62 of 62 with `expected/expectations_swegemma-0.2.10.json`.
+
+The 30 earlier cases, history checks, renders, AutoGen scenarios and replay results are unchanged from v1.1.0.
+
 ## 1.1.0 - 2026-10-13
 
 - Add `expected/expectations_swegemma-0.2.10.json`, the oracle for the official wheelhouse of 8 October 2026

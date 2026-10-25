@@ -28,6 +28,7 @@ PASS  cases/fix_plugin_trap
 FAIL  cases/fix_salvage_trap  mismatch in ['receivers', 'nudges']
 FAIL  cases/fix_official_skill_throw  mismatch in ['receivers', 'nudges', 'resolved', 'patch_sha8']
 PASS  cases/fix_plugin_skill_throw  
+PASS  cases/route_seq_length  
 PASS  history/none  seen ['C']
 PASS  history/default  seen ['A', 'B', 'C', 'edit', 'nudge']
 PASS  render/31B/true/pre_edit/default  rendered []; template sha256 ae53464bf3be25802b3a5b37def7fd89667067d7577049b3b2d74c4d8de4c6d4

@@ -12,6 +12,7 @@ Fixture check: no-op edit -> patch kept, tests fail (237 B); repair -> resolved 
 | LlmAgent + transfer, locator answered last, fixer owns | coordinator locator fixer fixer locator locator | 1 | lost (Tool 'submit_patch' not found.) |
 | LlmAgent + transfer, locator answered last, both own | coordinator locator fixer fixer locator locator locator | 1 | resolved |
 | SequentialAgent, cut-off nudge names edit_file | locator fixer fixer locator | 1 | lost (Tool 'edit_file' not found.) |
+| SequentialAgent, fixer's turn ends at the output-token limit | locator fixer fixer locator fixer locator fixer locator fixer | 3 | resolved |
 | LoopAgent (2 iterations), text end | locator fixer fixer locator fixer locator fixer locator fixer locator fixer locator fixer locator fixer locator fixer | 3 | resolved |
 | LlmAgent root + AgentTool analyzer | swe_fixer code_analyzer swe_fixer swe_fixer swe_fixer swe_fixer | 2 | resolved |
 

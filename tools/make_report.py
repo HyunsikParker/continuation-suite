@@ -39,6 +39,7 @@ def table_routing(s: dict) -> list[str]:
             ("LlmAgent + transfer, locator answered last, fixer owns", "route_transfer_locator_last_fixer_only"),
             ("LlmAgent + transfer, locator answered last, both own", "route_transfer_locator_last_both"),
             ("SequentialAgent, cut-off nudge names edit_file", "route_seq_cutoff"),
+            ("SequentialAgent, fixer's turn ends at the output-token limit", "route_seq_length"),
             ("LoopAgent (2 iterations), text end", "route_loop2_text_end"),
             ("LlmAgent root + AgentTool analyzer", "route_agenttool")]
     out = ["| configuration | request order (agent per model call) | nudges | outcome |", "|---|---|---|---|"]

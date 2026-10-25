@@ -4,7 +4,8 @@ usage: python3 tools/make_suite_cases.py --out probes/fx_suite_cases.json --over
 
 Groups (case name prefix):
   base_      the added test fails without the repair (a no-op edit reaches Phase 2) and passes with it
-  route_     who receives the nudge, by topology, with submit_patch owned by the fixer only or by both agents
+  route_     who receives the nudge, by topology, with submit_patch owned by the fixer only or by both agents;
+             route_seq_length ends the fixer's turn at the output-token limit (finish_reason "length")
   state_     what the re-invoked fixer sees (include_contents none vs default), with sentinels
   deleg_     valid AgentTool delegation, skip_summarization true vs false, N analyzer calls
   render_    the same with thinking on and reasoning sentinels (rendered afterwards by tools/render_check.py)
@@ -24,10 +25,12 @@ DONE = {"text": "Done."}
 SUBMIT = {"tool": "submit_patch", "args": {}}
 PLAN = {"text": "FILES: tinytable/table.py\nCHANGE: Table.add_row\nCHECK: tests/test_table.py"}
 CUT = {"text": "I will now apply the edit. <|tool_call>call:edit_file{path:<|\"|>tinytable/table.py"}
+LENGTH = {"text": "The repair belongs in Table.add_row, where the new Column", "finish": "length"}  # cut at max tokens
 EDIT_CALL = {"tool": "edit_file", "args": {"path": "tinytable/table.py", "old_string": "x", "new_string": "y"}}
 BAD_SKILL = {"tool": "run_skill_script", "args": {"skill_name": "scout", "file_path": ["scripts/locate.py"], "args": []}}
 TO = lambda a: {"tool": "transfer_to_agent", "args": {"agent_name": a}}  # noqa: E731
 ROOT_KEY, AN_KEY = "You are a careful Python engineer", "You are a read-only code analyzer"
+LOC_KEY, FIX_KEY = "You find where an issue must be fixed", "You fix one issue"  # bundles/v8 locator and fixer
 TRANSFER_ROOT = ("name: coordinator\nmodel: gemma-4-31b-it-qat-w4a16-ct\n"
                  "description: Routes the task to the locator, then to the fixer.\n"
                  "instruction: You coordinate two colleagues. First transfer to locator, then to fixer.\n"
@@ -88,6 +91,9 @@ def main() -> None:
           {"name": "fix_salvage_trap", "bundle": "bundles/v8", "env": dict(ov, SWEGEMMA_PROBE_VARIANT="salvage"), "script": trap},
           {"name": "fix_official_skill_throw", "bundle": "bundles/v8", "script": throw},
           {"name": "fix_plugin_skill_throw", "bundle": "bundles/v8", "env": dict(ov, SWEGEMMA_PROBE_VARIANT="cb"), "script": throw}]
+    # added in v1.2.0: the fixer's turn ends at the output-token limit; the locator's replies are complete
+    c.append({"name": "route_seq_length", "bundle": "bundles/v8",
+              "script": {"by_agent": {LOC_KEY: [PLAN], FIX_KEY: [GOLD, LENGTH]}}})
     for case in c:
         case["task_id"] = "tinytable_0001"
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)  # probes/ is not tracked

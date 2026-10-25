@@ -6,6 +6,7 @@ Every POST to /v1/chat/completions is appended to the log exactly as received (h
 credentials are not logged). Replies follow a script: a JSON list of steps, each either
   {"tool": "<name>", "args": {...}}   -> one tool call
   {"text": "<content>"}               -> a plain assistant message (ends the ADK turn)
+A text step may add "finish": "length" to report the output-token limit (finish_reason "length") instead of "stop".
 The last step repeats once the script is exhausted. GET /v1/models lists the requested model name.
 A script may instead be {"by_agent": {"<text in the system prompt>": [steps], ...}}: each agent, recognised by a
 substring of its system prompt, then follows its own step list with its own counter (stage-keyed scripting).
@@ -76,7 +77,7 @@ def make_handler(log_path: Path, script: list | dict, lock: threading.Lock, coun
                 finish = "tool_calls"
             else:
                 message = {"role": "assistant", "content": step.get("text", "Done.")}
-                finish = "stop"
+                finish = step.get("finish", "stop")
             if "reasoning" in step:  # what vLLM's reasoning parser returns next to the answer
                 message["reasoning_content"] = step["reasoning"]
             resp = {"id": f"chatcmpl-stub-{n}", "object": "chat.completion", "created": int(time.time()), "model": model,
