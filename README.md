@@ -161,22 +161,31 @@ not where multi-agent routing sends it.
 
 ## Continuation receivers in official-harness runs
 
-`results/e4b_seq_receivers_20261108.csv` has one row per continuation in two passes (8 November 2026, column
-`source`) of a SequentialAgent bundle through the official Evaluator (12 October wheelhouse) on Kaggle's 4 x L4
-serving `gemma-4-e4b-it-qat-w4a16-ct` at temperature 0.2. The bundle runs a locator that declares `run_command`,
-`read_file`, `get_status` and the three graph tools, then a fixer that declares all nine harness tools; both keep the
-default `include_contents`, and the limits are 8 minutes and 40 tool calls. Each pass ran the same 105 public tasks as
-the runs above. The recordings contain the competition tasks and are not shipped; `tools/continuation_receivers.py`
+`results/e4b_seq_receivers_20261110.csv` has one row per continuation in five passes (column `source`: two one-pass
+kernels on 8 November 2026 and one three-pass kernel on 10 November, passes `t02a` to `t02c`) of a SequentialAgent
+bundle through the official Evaluator (12 October wheelhouse) on Kaggle's 4 x L4 serving
+`gemma-4-e4b-it-qat-w4a16-ct` at temperature 0.2. The bundle runs a locator that declares `run_command`, `read_file`,
+`get_status` and the three graph tools, then a fixer that declares all nine harness tools; both keep the default
+`include_contents`, and the limits are 8 minutes and 40 tool calls. Each pass ran the same 105 public tasks as the
+runs above. The recordings contain the competition tasks and are not shipped; `tools/continuation_receivers.py`
 rebuilds the CSV from such run folders and labels agents by their first request (`agent1` is the locator, `agent2`
-the fixer).
+the fixer). `results/e4b_seq_receivers_20261108.csv` is the v1.3.0 file with the first two passes only; its six rows
+are the first six rows of the new file.
 
-The harness sent six continuations in six of the 210 runs (five generic, one after a cut-off tool call), each after
-the fixer ended a turn without `submit_patch`. In all six the next request came from the locator. In three the
-locator then called a tool it does not declare (`edit_file` twice, `submit_patch` once); these are the only undeclared
-calls among the 2,233 logged tool calls of both passes (locator 1,016, fixer 1,217). The harness answered each with a
-"Tool ... not found" error and the run went on. The locator spent 1 to 10 requests before the fixer ran again; the
-fixer then called `submit_patch` in all six runs, and one of the six resolved its task. The six runs took 245 s on
-average, against 123 s over all 210.
+The harness sent 19 continuations in 13 of the 525 runs (18 generic, one after a cut-off tool call), each after the
+fixer ended a turn without `submit_patch`. Eleven runs received one continuation and two received four. In all 19 the
+next request came from the locator. In six, one per run, the locator then called a tool it does not declare
+(`edit_file` five times, `submit_patch` twice); these seven are the only undeclared calls among the 5,721 logged tool
+calls of the five passes (locator 2,637, fixer 3,084). The harness answered each with a "Tool ... not found" error
+and the run went on. The locator spent 1 to 10 requests before the fixer ran again. The fixer later called
+`submit_patch` in ten of the 13 runs. The other three are the only runs of the 525 with a harness error recorded: two
+ended with "Agent completed execution without calling submit_patch" after four continuations each, and one reached the
+8-minute session limit. One of the 13 resolved its task (56 of all 525 did), and the 13 took 224 s on average,
+against 126 s over all 525.
+
+The first two passes alone had six continuations in six of 210 runs, three of them followed by an undeclared call,
+and the fixer submitted in all six. The three later passes were run to check that count: 13 continuations in seven of
+315 runs, three followed by an undeclared call.
 
 ## License
 

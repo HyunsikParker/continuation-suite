@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.1 - 2026-11-10
+
+- Add `results/e4b_seq_receivers_20261110.csv`: the 19 continuations in 525 Kaggle runs (five passes) of the two-stage
+  SequentialAgent bundle with Gemma 4 E4B. It extends the v1.3.0 file, which is kept, with three more passes of the
+  same bundle and tasks. All 19 went to the first sub-agent; in six it called an undeclared tool; three of the 13
+  runs ended without `submit_patch`.
+- README: the receivers section reports the five-pass counts.
+
+Code, cases, expectations, renders, AutoGen scenarios, replay results and the 525-run 12B CSVs are unchanged from
+v1.3.0.
+
 ## 1.3.0 - 2026-11-10
 
 - Add `tools/continuation_receivers.py`, which lists the agent that receives each continuation in recorded
