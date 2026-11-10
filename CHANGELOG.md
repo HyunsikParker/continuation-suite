@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0 - 2026-11-10
+
+- Add `tools/continuation_receivers.py`, which lists the agent that receives each continuation in recorded
+  multi-agent runs of the official harness, the tools it calls before another agent takes over, and any call to a tool
+  it does not declare.
+- Add `results/e4b_seq_receivers_20261108.csv`: the six continuations in 210 Kaggle runs of a two-stage
+  SequentialAgent bundle with Gemma 4 E4B (README, "Continuation receivers in official-harness runs"). All six went to
+  the first sub-agent; in three it called an undeclared tool.
+
+Cases, expectations, renders, AutoGen scenarios, replay results and the 525-run CSVs are unchanged from v1.2.0.
+
 ## 1.2.0 - 2026-10-25
 
 - Add `tools/continuation_triggers.py` and `tools/undeclared_calls.py`, which count continuation messages by trigger

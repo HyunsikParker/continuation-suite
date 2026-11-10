@@ -1,0 +1,7 @@
+source,run,task,pass,resolved,trigger,stopped_agent,receiver,receiver_has_submit,receiver_requests,receiver_tool_calls,receiver_first_action,receiver_undeclared,submit_after
+kaggle_gemma4_e4b_sound_v21,fastapi_13713__t02,fastapi_13713,t02,0,generic,agent2,agent1,0,6,5,read_file,edit_file,1
+kaggle_gemma4_e4b_sound_v21,rich_3675__t02,rich_3675,t02,0,generic,agent2,agent1,0,5,4,run_command,,1
+kaggle_gemma4_e4b_sound_v21,rich_3938__t02,rich_3938,t02,0,generic,agent2,agent1,0,1,0,text,,1
+kaggle_gemma4_e4b_sound_v21r,fastapi_12942__t02,fastapi_12942,t02,0,generic,agent2,agent1,0,2,1,submit_patch,submit_patch,1
+kaggle_gemma4_e4b_sound_v21r,fastapi_14360__t02,fastapi_14360,t02,0,tool_cut,agent2,agent1,0,10,9,read_file,edit_file,1
+kaggle_gemma4_e4b_sound_v21r,fastapi_14873__t02,fastapi_14873,t02,1,generic,agent2,agent1,0,3,2,run_command,,1
